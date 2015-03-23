@@ -5,7 +5,6 @@
    Accept upperbound
    Accept initial number of stones
    Print initial number of stones in asterisks *
-
    Game starts,
    Player 1 removes x < upperbound+1 stones
    Prove updated number and display of stones
@@ -16,13 +15,20 @@
    Terminate program.
 */
 
-// http://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html
-// http://www.cs.utexas.edu/users/ndale/Scanner.html
 import java.util.Scanner;
 
-public class Nimsys {
-   public static void main(String[]args) {
-      System.out.println("\nWelcome to Nim\n");
-   }
+public class Nimsys {	
+	public static void main (String[] args) {
+		System.out.println("\nWelcome to Nim\n");
+		Scanner input = new Scanner (System.in);
 
+		Nimplayer player1 = new Nimplayer();
+		Nimplayer player2 = new Nimplayer();
+
+		System.out.println("Please enter Player 1's name");
+		player1.name = input.nextLine();
+
+		System.out.println("Please enter Player 2's name");
+		player2.name = input.nextLine();
+	}
 }
