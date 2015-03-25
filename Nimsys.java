@@ -26,14 +26,15 @@ public class Nimsys {
 		// only ONE scanner in main method
 		Scanner input = new Scanner (System.in);
 		
-		System.out.println("Please enter Player 1's name");
+		System.out.println("Please enter Player 1's name:");
 		Nimplayer player1 = new Nimplayer(input);
 		player1.getName();
 
-		System.out.println("Please enter Player 2's name");
+		System.out.println("Please enter Player 2's name:");
 		Nimplayer player2 = new Nimplayer(input);
 		player2.getName();
-		
+
+		Nimplayer.getUpperBound();
 	}
 }
 
