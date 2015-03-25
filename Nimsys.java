@@ -4,7 +4,7 @@
    display a welcome message
    Accept name of Player 1 in string (no space)
    Accept name of Player 2 in string (no space)
-   Accept upperbound
+   Accept upperbound - class variable
    Accept initial number of stones
    Print initial number of stones in asterisks *
    Game starts,
@@ -20,6 +20,8 @@
 import java.util.Scanner;
 
 public class Nimsys {	
+	public static int upperBound;
+
 	public static void main (String[] args) {
 		System.out.println("Welcome to Nim");
 		
@@ -34,7 +36,12 @@ public class Nimsys {
 		Nimplayer player2 = new Nimplayer(input);
 		player2.getName();
 
-		Nimplayer.getUpperBound();
+		Nimsys.getUpperBound(input);
+	}
+
+	public static void getUpperBound(Scanner input) {
+		System.out.println("Please enter upper bound of stone removal:");
+		upperBound = input.nextInt();
 	}
 }
 
