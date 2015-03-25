@@ -20,13 +20,14 @@
 import java.util.Scanner;
 
 public class Nimsys {	
-	public static int upperBound;
+	private static int upperBound;
+	
+	// to prevent using more than Scanner object, final is used.
+	public static final Scanner input = new Scanner (System.in);
 
 	public static void main (String[] args) {
 		System.out.println("Welcome to Nim");
 		
-		// only ONE scanner in main method
-		Scanner input = new Scanner (System.in);
 		
 		System.out.println("Please enter Player 1's name:");
 		Nimplayer player1 = new Nimplayer(input);
@@ -39,7 +40,7 @@ public class Nimsys {
 		Nimsys.getUpperBound(input);
 	}
 
-	public static void getUpperBound(Scanner input) {
+	private static void getUpperBound(Scanner input) {
 		System.out.println("Please enter upper bound of stone removal:");
 		upperBound = input.nextInt();
 	}
