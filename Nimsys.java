@@ -1,4 +1,6 @@
+
 /*
+- To Do List -
    display a welcome message
    Accept name of Player 1 in string (no space)
    Accept name of Player 2 in string (no space)
@@ -19,16 +21,19 @@ import java.util.Scanner;
 
 public class Nimsys {	
 	public static void main (String[] args) {
-		System.out.println("\nWelcome to Nim\n");
+		System.out.println("Welcome to Nim");
+		
+		// only ONE scanner in main method
 		Scanner input = new Scanner (System.in);
-
-		Nimplayer player1 = new Nimplayer();
-		Nimplayer player2 = new Nimplayer();
-
+		
 		System.out.println("Please enter Player 1's name");
-		player1.name = input.nextLine();
+		Nimplayer player1 = new Nimplayer(input);
+		player1.getName();
 
 		System.out.println("Please enter Player 2's name");
-		player2.name = input.nextLine();
+		Nimplayer player2 = new Nimplayer(input);
+		player2.getName();
+		
 	}
 }
+
