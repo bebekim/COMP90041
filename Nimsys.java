@@ -20,21 +20,19 @@
 import java.util.Scanner;
 
 public class Nimsys {	
-	private static int upperBound;
-	
 	// to prevent using more than Scanner object, final is used.
 	public static final Scanner input = new Scanner (System.in);
+	private static int upperBound;
 
 	public static void main (String[] args) {
 		System.out.println("Welcome to Nim");
-		
-		
+				
 		System.out.println("Please enter Player 1's name:");
-		Nimplayer player1 = new Nimplayer(input);
+		Nimplayer player1 = Nimplayer.createPlayer();
 		player1.getName();
 
 		System.out.println("Please enter Player 2's name:");
-		Nimplayer player2 = new Nimplayer(input);
+		Nimplayer player2 = Nimplayer.createPlayer();
 		player2.getName();
 
 		Nimsys.getUpperBound(input);
