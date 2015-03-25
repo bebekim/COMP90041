@@ -1,17 +1,17 @@
 import java.util.Scanner;
 
 public class Nimplayer {
-	private Scanner keyboard;
 	private String name;
 
-	//constructor which passes Scanner object from main
-	public Nimplayer(Scanner input) {
-		this.keyboard = input;
+	//constructor which plainly replaces new
+	public static Nimplayer createPlayer() {
+		return new Nimplayer();
 	}
 
-	public void getName() {
-		name = keyboard.nextLine();
+	public void setName(String name) {
+		this.name = name;
 	}
+
 
 /*
 	public int removeStone() {
