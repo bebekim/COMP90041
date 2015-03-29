@@ -22,51 +22,67 @@
 import java.util.Scanner;
 
 public class Nimsys {	
-	// to prevent using more than Scanner object, final is used.
 	public static Scanner input = new Scanner (System.in);
-	private static int upperBound;
-	private static int stoneCount;
-
+	//upperBound and stoneCount are game rules so they stay within Nisys
+	public static int upperBound;
+	public static int stoneCount;
+	
 	public static void main (String[] args) {
 		System.out.println("Welcome to Nim");
 
 		System.out.println("Please enter Player 1's name:");
 		Nimplayer player1 = Nimplayer.createPlayer();
-		player1.setName(Nimsys.setName());
+		player1.setName(Nimsys.acceptName());
 
 		System.out.println("Please enter Player 2's name:");
 		Nimplayer player2 = Nimplayer.createPlayer();
-		player2.setName(Nimsys.setName());
+		player2.setName(Nimsys.acceptName());
 
+		//game set up
 		Nimsys.setUpperBound();
 		Nimsys.setStone();
+		
+		//game play begin
+		Nimsys.displayControl(stoneCount);
 	}
 
-	/*
-	On the choice of using
-	public static void setUpperBound()
-	vs.
-	private static void setUpperBound(Scanner input)
-	I have chosen to use public static void with no parameter. 
-	Why? because with only one Scanner object,
-	it serves many purposes and doesn't seem like a unique input parameter.
-	*/
-
-	public static String setName() {
+	//similar in nature with createPlayer() method
+	public static String acceptName () {
 		return input.next();
 	}
 
-	public static void setUpperBound() {
+	public static void setUpperBound () {
 		System.out.println("Please enter upper bound of stone removal:");
 		upperBound = input.nextInt();
 	}
 
-	public static void setStone() {
+	public static void setStone () {
 		System.out.println("Please enter initial number of stones:");
 		stoneCount = input.nextInt();
 	}
 
 
+	public static void displayControl (int stoneCount) {
+		int asterisks = stoneCount;
+		displayAsterisks(asterisks);
+	}
+
+	private static void displayAsterisks (int asterisks) {
+		System.out.print("*");
+		if (asterisks == 1) {
+			;
+		}
+		else {
+			System.out.print(" ");
+			asterisks--;
+			displayAsterisks(asterisks);
+		}
+	}
+
+	private void gameOver (String winner) {
+		System.out.println("Game Over");
+		System.out.println(winner + "wins");
+	}
 
 }
 

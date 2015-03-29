@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Nimplayer {
 	private String name;
 
-	//constructor which plainly replaces new
+	//constructor which plainly replaces default 'new' to make it look easier on the eye.
 	public static Nimplayer createPlayer() {
 		return new Nimplayer();
 	}
@@ -12,13 +12,9 @@ public class Nimplayer {
 		this.name = name;
 	}
 
-
-/*
-	public int removeStone() {
-		keyboard.nextInt();
-		return 0;
-		//action takes place
+	public void removeStone () {
+		;
 	}
-*/
+
 
 }
