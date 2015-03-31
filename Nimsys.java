@@ -1,21 +1,26 @@
-
 /*
+Name: Young Ha Kim
+Email: younghak@student.unimelb.edu.au
+Class: COMP90041 
+Assignment: Project A - Game of Nim
+Assignment Requirements:
+
 - Done - 
    display a welcome message
    Accept name of Player 1 in string (no space)
    Accept name of Player 2 in string (no space)
    Accept upperbound - class variable
    Accept initial number of stones
-   
-- To Do List -
    Print initial number of stones in asterisks *
-   Game starts,
+- To Do List -
+   Player 1 turn,
    Player 1 removes x < upperbound+1 stones
-   Prove updated number and display of stones
+   Show updated number and display of stones
+   Player 2 turn,
    Player 2 removes y < upperbound+1 stones
-   Repeat previous two steps until no more stones are left behind.
+   Repeat previous 5 steps until no more stones are left behind.
    Display 'Game Over'
-   println("name of the winner");
+   Print the name of the winner.
    Terminate program.
 */
 
@@ -23,9 +28,9 @@ import java.util.Scanner;
 
 public class Nimsys {	
 	public static Scanner input = new Scanner (System.in);
-	//upperBound and stoneCount are game rules so they stay within Nisys
 	public static int upperBound;
 	public static int stoneCount;
+	public static boolean isPlayer1Turn = true;
 	
 	public static void main (String[] args) {
 		System.out.println("Welcome to Nim");
@@ -40,13 +45,25 @@ public class Nimsys {
 
 		//game set up
 		Nimsys.setUpperBound();
-		Nimsys.setStone();
+		Nimsys.setStone();	
 		
 		//game play begin
-		Nimsys.displayControl(stoneCount);
+		while (stoneCount > 0) {
+			Nimsys.displayControl(stoneCount);
+/*
+			if (isPlayer1Turn == true) {
+				System.out.println(player1.name + "'s turn - remove how many?");
+
+			}
+			else {
+				System.out.println(player2.name + "'s turn - remove how many?");
+			}
+*/
+			stoneCount--;
+		} 
+
 	}
 
-	//similar in nature with createPlayer() method
 	public static String acceptName () {
 		return input.next();
 	}
@@ -61,28 +78,20 @@ public class Nimsys {
 		stoneCount = input.nextInt();
 	}
 
-
 	public static void displayControl (int stoneCount) {
 		int asterisks = stoneCount;
 		displayAsterisks(asterisks);
 	}
 
 	private static void displayAsterisks (int asterisks) {
-		System.out.print("*");
 		if (asterisks == 1) {
-			;
+			System.out.print("*\n");
 		}
 		else {
-			System.out.print(" ");
+			System.out.print("* ");
 			asterisks--;
 			displayAsterisks(asterisks);
 		}
 	}
 
-	private void gameOver (String winner) {
-		System.out.println("Game Over");
-		System.out.println(winner + "wins");
-	}
-
 }
-
